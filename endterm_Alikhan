@@ -1,0 +1,108 @@
+
+
+def math_degree():
+    try:
+        with open('./math.txt', 'r') as f:
+            read_file = f.read()
+
+            if read_file:
+                print("if read", read_file)
+                print(read_file.split('\n'))
+                
+                list_math = list(map(int, read_file.split('\n')))
+            else:
+                read_file = f.read()  
+                              
+                list_math = list(map(int,read_file.split(',')))
+
+
+        #         list_math=[]
+        #         lines_math = f.readlines()
+        # for lin in lines_math:
+        #     list_math.append(lin.strip())
+            sum_list=sum(list_math)/len(list_math)
+            return sum_list
+
+
+    except FileNotFoundError:
+        math=open('math.txt','w+')
+        num_cycle=int(input('Enter how many evaluations: '))
+        for i in range(num_cycle):
+            m=int(input(f'Enter {i} estimation: '))
+            s=str(m)+'\n'
+            math.write(s)
+
+        #spisokf = [ for line in math ]
+        math.close()
+
+
+
+
+
+
+
+def chemistry_degree():
+    try:
+        with open('chemistry.txt', 'r') as f:
+
+            read_file = f.read()
+
+            if read_file:
+
+
+
+                list_chemistry = list(map(int,read_file.split('\n')))
+            else:
+                read_file = f.read()  
+                list_chemistry = list(map(int,read_file.split('\n')))
+
+            sum_list=sum(list_chemistry)/len(list_chemistry)
+            return sum_list
+
+    except FileNotFoundError:
+        chemistry=open('chemistry.txt','w+')
+        num_cycle=int(input('Enter how many evaluations: '))
+        for i in range(num_cycle):
+            m=int(input(f'Enter {i} estimation: '))
+            s=str(m)+'\n'
+            chemistry.write(s)
+
+        chemistry.close()
+
+
+
+def english_degree():
+    try:
+        with open('english.txt', 'r') as f:
+            read_file = f.read()
+
+            if read_file:
+
+
+                list_english = list(map(int,read_file.split('\n')))
+            else:
+                read_file = f.read()  
+                list_english = list(map(int,read_file.split('\n')))
+            
+
+            sum_list=sum(list_english)/len(list_english)
+            return sum_list
+
+    except FileNotFoundError:
+        english=open('english.txt','w+')
+        num_cycle=int(input('Enter how many evaluations: '))
+        for i in range(num_cycle):
+            m=int(input(f'Enter {i} estimation: '))
+            s=str(m)+'\n'
+            english.write(s)
+        english.close()
+
+
+
+math_val=math_degree()
+chemistry_val=chemistry_degree()
+english_val=english_degree()
+print(math_val)
+print(chemistry_val)
+print(english_val)
+
